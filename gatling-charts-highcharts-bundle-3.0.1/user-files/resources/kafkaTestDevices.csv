@@ -1,0 +1,11 @@
+deviceName,deviceType,tenantId,ts,status_tampering,status_battery,status_leak,status_counter_error,status_reset,status_gen_a,status_gen_b,status_gen_c,tlm_temperature,tlm_counter_total,tlm_gen_a,tlm_gen_b,tlm_gen_c,tlm_gen_d,tlm_gen_e,tlm_gen_f,tlm_gen_g
+TestDevice001,FL-SG-bk-SIM,cf06d5f0-f24f-11e8-98d5-135d3a569296,1551965988000,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+TestDevice002,FL-SG-bk-SIM,cf06d5f0-f24f-11e8-98d5-135d3a569296,1551965988000,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+TestDevice003,FL-SG-bk-SIM,cf06d5f0-f24f-11e8-98d5-135d3a569296,1551965988000,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+TestDevice004,FL-SG-bk-SIM,cf06d5f0-f24f-11e8-98d5-135d3a569296,1551965988000,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+TestDevice005,FL-SG-bk-SIM,cf06d5f0-f24f-11e8-98d5-135d3a569296,1551965988000,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+TestDevice006,FL-SG-bk-SIM,cf06d5f0-f24f-11e8-98d5-135d3a569296,1551965988000,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+TestDevice007,FL-SG-bk-SIM,cf06d5f0-f24f-11e8-98d5-135d3a569296,1551965988000,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+TestDevice008,FL-SG-bk-SIM,cf06d5f0-f24f-11e8-98d5-135d3a569296,1551965988000,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+TestDevice009,FL-SG-bk-SIM,cf06d5f0-f24f-11e8-98d5-135d3a569296,1551965988000,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+TestDevice010,FL-SG-bk-SIM,cf06d5f0-f24f-11e8-98d5-135d3a569296,1551965988000,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

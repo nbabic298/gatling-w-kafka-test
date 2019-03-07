@@ -1,0 +1,10 @@
+{
+  "simulation": "KafkaTestSimulation",
+  "simulationId": "kafkatestsimulation",
+  "start": 1551966644087,
+  "description": "",
+  "scenarios": ["Kafka Test"],
+  "assertions": [
+
+  ]
+}
