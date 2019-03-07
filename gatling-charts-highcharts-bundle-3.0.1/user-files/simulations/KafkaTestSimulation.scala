@@ -6,11 +6,11 @@ import com.github.mnogu.gatling.kafka.Predef._
 
 class KafkaTestSimulation extends Simulation {
   val kafkaConf = kafka
-    .topic("tester")
+    .topic("tb-gas-telemetry")
     .properties(
       Map(
         ProducerConfig.ACKS_CONFIG -> "1",
-        ProducerConfig.BOOTSTRAP_SERVERS_CONFIG -> "localhost:9092",
+        ProducerConfig.BOOTSTRAP_SERVERS_CONFIG -> "my-cluster-kafka-brokers.om-strimzi-0100.svc",
         ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG ->
           "org.apache.kafka.common.serialization.StringSerializer",
         ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG ->
