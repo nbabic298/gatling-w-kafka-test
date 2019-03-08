@@ -1,0 +1,10 @@
+{
+  "simulation": "HttpSimulation",
+  "simulationId": "httpsimulation",
+  "start": 1552048125541,
+  "description": "",
+  "scenarios": ["My Scenario"],
+  "assertions": [
+
+  ]
+}
