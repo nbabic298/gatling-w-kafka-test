@@ -32,7 +32,7 @@ class KafkaDirectTestSimulation extends Simulation {
     .feed(csv("kafkaDirectTestDevices.csv").random)
     .exec(kafka("request").send[String](
       "{" + 
-        "\"deviceId\": \"${deviceId}\"," +
+        "\"deviceId\": ${deviceId}," +
         "\"status_tampering\": ${status_tamperingd}," +
         "\"status_battery\": ${status_batteryd}," +
         "\"status_leak\": ${status_leakd}," +
