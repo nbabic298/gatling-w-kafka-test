@@ -4,7 +4,7 @@ import scala.concurrent.duration._
 
 import com.github.mnogu.gatling.kafka.Predef._
 
-class KafkaTestSimulation extends Simulation {
+class KafkaDirectTestSimulation extends Simulation {
   val kafkaConf = kafka
     .topic("tb-gas-telemetry")
     .properties(
@@ -29,38 +29,31 @@ class KafkaTestSimulation extends Simulation {
                     .set("tlm_gen_dd", System.currentTimeMillis % 1000).set("tlm_gen_ed", System.currentTimeMillis % 1000)
                     .set("tlm_gen_fd", System.currentTimeMillis % 1000).set("tlm_gen_gd", System.currentTimeMillis % 1000)
     }
-    .feed(csv("kafkaTestDevices.csv").random)
+    .feed(csv("kafkaDirectTestDevices.csv").random)
     .exec(kafka("request").send[String](
       "{" + 
-        "\"deviceName\": \"${deviceName}\"," +
-        "\"deviceType\": \"${deviceType}\"," +
-        "\"tenantId\": \"${tenantId}\"," +
-        "\"telemetry\": {" +
-          "\"ts\": \"${tsd}\"," +
-          "\"values\": {" +
-            "\"status_tampering\": ${status_tamperingd}," +
-            "\"status_battery\": ${status_batteryd}," +
-            "\"status_leak\": ${status_leakd}," +
-            "\"status_counter_error\": ${status_counter_errord}," +
-            "\"status_reset\": ${status_resetd}," +
-            "\"status_gen_a\": ${status_gen_ad}," +
-            "\"status_gen_b\": ${status_gen_bd}," +
-            "\"status_gen_c\": ${status_gen_cd}," +
-            "\"tlm_temperature\": ${tlm_temperatured}," +
-            "\"tlm_counter_total\": ${tlm_counter_totald}," +
-            "\"tlm_gen_a\": ${tlm_gen_ad}," +
-            "\"tlm_gen_b\": ${tlm_gen_bd}," +
-            "\"tlm_gen_c\": ${tlm_gen_cd}," +
-            "\"tlm_gen_d\": ${tlm_gen_dd}," +
-            "\"tlm_gen_e\": ${tlm_gen_ed}," +
-            "\"tlm_gen_f\": ${tlm_gen_fd}," +
-            "\"tlm_gen_g\": ${tlm_gen_gd}" +
-          "}" +
-        "}" +
+        "\"deviceId\": \"${deviceId}\"," +
+        "\"status_tampering\": ${status_tamperingd}," +
+        "\"status_battery\": ${status_batteryd}," +
+        "\"status_leak\": ${status_leakd}," +
+        "\"status_counter_error\": ${status_counter_errord}," +
+        "\"status_reset\": ${status_resetd}," +
+        "\"status_gen_a\": ${status_gen_ad}," +
+        "\"status_gen_b\": ${status_gen_bd}," +
+        "\"status_gen_c\": ${status_gen_cd}," +
+        "\"tlm_temperature\": ${tlm_temperatured}," +
+        "\"tlm_counter_total\": ${tlm_counter_totald}," +
+        "\"tlm_gen_a\": ${tlm_gen_ad}," +
+        "\"tlm_gen_b\": ${tlm_gen_bd}," +
+        "\"tlm_gen_c\": ${tlm_gen_cd}," +
+        "\"tlm_gen_d\": ${tlm_gen_dd}," +
+        "\"tlm_gen_e\": ${tlm_gen_ed}," +
+        "\"tlm_gen_f\": ${tlm_gen_fd}," +
+        "\"tlm_gen_g\": ${tlm_gen_gd}" +
       "}"))
 
   setUp(
     scn
-      .inject(constantUsersPerSec(10) during(10 seconds))) //.inject(rampUsersPerSec(10000) to 10010 during (5 seconds)))
+      .inject(rampUsersPerSec(5000) to 10000 during (10 seconds)))//.inject(constantUsersPerSec(10) during(10 seconds))) 
     .protocols(kafkaConf)
 }
