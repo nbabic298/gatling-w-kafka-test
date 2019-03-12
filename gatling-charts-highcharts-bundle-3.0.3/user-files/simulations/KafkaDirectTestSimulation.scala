@@ -6,7 +6,7 @@ import com.github.mnogu.gatling.kafka.Predef._
 
 class KafkaDirectTestSimulation extends Simulation {
   val kafkaConf = kafka
-    .topic("tb-gas-telemetry")
+    .topic("telemetry")
     .properties(
       Map(
         ProducerConfig.ACKS_CONFIG -> "1",
