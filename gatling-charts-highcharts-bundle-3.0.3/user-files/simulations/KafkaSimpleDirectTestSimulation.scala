@@ -24,12 +24,13 @@ class KafkaSimpleDirectTestSimulation extends Simulation {
     }
     .feed(csv("kafkaDirectTestDevices.csv").random)
     .exec(kafka("request").send[String](
-      "{" + 
+      "{" +
+        "\"deviceId\": ${deviceId}," +
         "\"tlm_counter_total\": ${tlm_counter_totald}" +
       "}"))
 
   setUp(
     scn
-      .inject(rampUsersPerSec(5000) to 10000 during (10 seconds)))//.inject(constantUsersPerSec(10) during(10 seconds))) 
+      .inject(rampUsersPerSec(1) to 1 during (1 seconds)))//.inject(constantUsersPerSec(10) during(10 seconds))) 
     .protocols(kafkaConf)
 }
