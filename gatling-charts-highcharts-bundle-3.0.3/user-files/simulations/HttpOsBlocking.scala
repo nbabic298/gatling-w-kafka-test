@@ -4,7 +4,7 @@ import scala.concurrent.duration._
 
 class HttpOsBlocking extends Simulation {
 
-  val httpConf = http.baseUrl("http://blocking-service.om-test-sigfox-components-throughput.svc/test/")
+  val httpConf = http.baseUrl("http://blocking-service.om-test-sigfox-components-throughput.svc:8080/test/")
                     .shareConnections
 
   val scnNoWork = scenario("No Work Blocking Scenario")

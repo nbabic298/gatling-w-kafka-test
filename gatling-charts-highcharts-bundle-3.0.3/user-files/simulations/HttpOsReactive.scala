@@ -4,7 +4,7 @@ import scala.concurrent.duration._
 
 class HttpOsReactive extends Simulation {
 
-  val httpConf = http.baseUrl("http://reactive-service.om-test-sigfox-components-throughput.svc/test/")
+  val httpConf = http.baseUrl("http://reactive-service.om-test-sigfox-components-throughput.svc:8080/test/")
                     .shareConnections
 
   val scnNoWork = scenario("No Work Reactive Scenario")
