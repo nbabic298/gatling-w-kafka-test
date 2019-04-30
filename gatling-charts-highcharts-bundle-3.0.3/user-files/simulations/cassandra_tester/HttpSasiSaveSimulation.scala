@@ -22,5 +22,5 @@ class HttpSasiSaveSimulation extends Simulation {
       .body(StringBody("{\"applicationId\":\"${applicationId}\", \"assetUnitId\":\"${assetUnitId}\", \"deviceId\":\"${deviceId}\", \"deviceId\":\"${deviceId}\", \"key\":\"${key}\", \"doubleValue\":\"${doubleValue}\"}"))
   )
 
-  setUp(scn.inject(constantUsersPerSec(2000) during(150 seconds)).protocols(httpConf))
+  setUp(scn.inject(constantUsersPerSec(1000) during(150 seconds)).protocols(httpConf))
 }

@@ -17,7 +17,7 @@ class HttpSidxV3AssetReadSimulation extends Simulation {
     }
   .exec(
     http("Sidx v3 telemetry read req")
-      .get("v3/1/asset-unit/2/from/1556625536000/to/1564487936000/limit/2147483647?keys=co2,nh3")
+      .get("v3/1/asset-unit/2/from/1556625536000/to/1564487936000/limit/2000?keys=co2,nh3")
   )
 
   setUp(scn.inject(constantUsersPerSec(1) during(10 seconds)).protocols(httpConf))
