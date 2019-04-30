@@ -7,6 +7,7 @@ import scala.concurrent.duration._
 class HttpSasiSaveSimulation extends Simulation {
 
   val httpConf = http.baseUrl("http://cassandra-tester:8080/telemetry/sasi/")
+                    .header("Content-Type", "application/json")
                     .shareConnections
 
   val scn = scenario("Save Sasi telemetry")
@@ -21,5 +22,5 @@ class HttpSasiSaveSimulation extends Simulation {
       .body(StringBody("{\"applicationId\":\"${applicationId}\", \"assetUnitId\":\"${assetUnitId}\", \"deviceId\":\"${deviceId}\", \"deviceId\":\"${deviceId}\", \"key\":\"${key}\", \"doubleValue\":\"${doubleValue}\"}"))
   )
 
-  setUp(scn.inject(constantUsersPerSec(1) during(10 seconds)).protocols(httpConf))
+  setUp(scn.inject(constantUsersPerSec(2000) during(150 seconds)).protocols(httpConf))
 }
