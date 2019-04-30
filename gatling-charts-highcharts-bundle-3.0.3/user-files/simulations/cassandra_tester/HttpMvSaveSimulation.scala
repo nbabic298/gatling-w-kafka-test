@@ -13,12 +13,12 @@ class HttpMvSaveSimulation extends Simulation {
   .exec {
         session => session.set("applicationId", 1).set("assetUnitId", 2)
                     .set("deviceId", 3).set("key", "co2")
-                    .set("doubleValue", System.currentTimeMillis % 100000000)
+                    .set("doubleValue", System.currentTimeMillis % 1000000000)
     }
   .exec(
     http("MV telemetry req")
       .post("")
-      .body(StringBody("{\"applicationId\":\"${applicationId}\", \"assetUnitId\":\"${assetUnitId}\", \"deviceId\":\"${deviceId}\", \"deviceId\":\"${deviceId}\", \"key\":\"${key}\", \"key\":\"${key}\"}"))
+      .body(StringBody("{\"applicationId\":\"${applicationId}\", \"assetUnitId\":\"${assetUnitId}\", \"deviceId\":\"${deviceId}\", \"deviceId\":\"${deviceId}\", \"key\":\"${key}\", \"doubleValue\":\"${doubleValue}\"}"))
   )
 
   setUp(scn.inject(constantUsersPerSec(1) during(10 seconds)).protocols(httpConf))
