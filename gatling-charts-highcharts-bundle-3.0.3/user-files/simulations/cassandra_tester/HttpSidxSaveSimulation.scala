@@ -12,8 +12,8 @@ class HttpSidxSaveSimulation extends Simulation {
 
   val scn = scenario("Save Sidx telemetry")
   .exec {
-        session => session.set("applicationId", 1).set("assetUnitId", 2)
-                    .set("deviceId", 3).set("key", "co2")
+        session => session.set("applicationId", 1).set("assetUnitId", (System.currentTimeMillis % 10) + 1)
+                    .set("deviceId", (System.currentTimeMillis % 10) + 1).set("key", "co2")
                     .set("doubleValue", System.currentTimeMillis % 1000000000)
     }
   .exec(
@@ -22,5 +22,5 @@ class HttpSidxSaveSimulation extends Simulation {
       .body(StringBody("{\"applicationId\":\"${applicationId}\", \"assetUnitId\":\"${assetUnitId}\", \"deviceId\":\"${deviceId}\", \"deviceId\":\"${deviceId}\", \"key\":\"${key}\", \"doubleValue\":\"${doubleValue}\"}"))
   )
 
-  setUp(scn.inject(constantUsersPerSec(1000) during(150 seconds)).protocols(httpConf))
+  setUp(scn.inject(constantUsersPerSec(1800) during(150 seconds)).protocols(httpConf))
 }
